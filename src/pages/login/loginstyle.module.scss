@@ -14,24 +14,22 @@
     height: 100vh;
     overflow-y: hidden;
     position: relative;
+    @include flex-container(column, center, center);
 
     &>div:nth-child(1) {
-        width: 100%;
-        flex: 1;
+        width: 90%;
         gap: 1rem;
 
         &>p {
             font-family: $poppins-sans;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             text-align: center;
-            padding-bottom: 0.5rem;
         }
 
         &>div {
             width: 100%;
             justify-content: center;
-            display: flex;
             gap: 1rem;
             font-size: 1.2rem;
             font-weight: 600;
@@ -53,7 +51,17 @@
     &>button {
         background-color: $action;
         border: 1px solid $light;
-        margin-top: 0.5rem;
+        margin-top: 1rem;
         color: white;
+    }
+}
+
+.image__container {
+    width: 100%;
+    flex: 1;
+    @include flex-container(column, center, center);
+    &>img {
+        width: 8rem;
+        height: 8rem;
     }
 }

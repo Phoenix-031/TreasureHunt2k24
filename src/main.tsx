@@ -4,7 +4,9 @@ import App from "./App.tsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 import CreateTeamPage from "./pages/CreateTeam/index.tsx";
-
+import AddMembers from "./pages/addMembers/addmembers.tsx";
+import LoginPage from "./pages/login/loginpage.tsx";
+import LandingPage from "./pages/landingPage/landing.tsx";
 
 const router = createBrowserRouter([
   {
@@ -13,13 +15,20 @@ const router = createBrowserRouter([
   },
   {
     path : '/login',
-    element : <>login</>
+    element : <LoginPage />
   },
   {
     path:'/createTeam',
     element : <CreateTeamPage />
   },
-
+  {
+    path:'/addMembers',
+    element : <AddMembers />
+  },
+  {
+    path:'/landing',
+    element : <LandingPage />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

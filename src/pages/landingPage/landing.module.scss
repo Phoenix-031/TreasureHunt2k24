@@ -1,0 +1,90 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
+@mixin flex-container($direction: row, $justify: flex-start, $align: flex-start) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.create__main__container {
+    background-color: $primary;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+    position: relative;
+    @include flex-container(column, center, center);
+
+    &>div:nth-child(1) {
+        width: 90%;
+        gap: 1rem;
+        @include flex-container(column, center, center);
+
+        &>p {
+            font-family: $poppins-sans;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        &>div {
+            width: 100%;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        &>button {
+            background-color: $action;
+            border: 1px solid $light;
+            margin-top: 1rem;
+            color: white;
+        }
+    }
+}
+
+.timer__container {
+    width: 100%;
+    flex: 1;
+    @include flex-container(column, center, center);
+    &>p {
+        font-family: $poppins-sans;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    &>button {
+        background-color: $action;
+        border: 1px solid $light;
+        margin-top: 1rem;
+        color: white;
+    }
+}
+
+.timer__box {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0.4rem;
+    border: 1px solid $light;
+    text-align: center;
+
+    &>section {
+        font-family: $poppins-sans;
+        &>p:nth-child(1) {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        &>p:nth-child(2) {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    }
+    &>span {
+        font-family: $poppins-sans;
+        font-size: 1.5rem;
+        margin-top: 0.9rem;
+        font-weight: 600;
+    }
+}

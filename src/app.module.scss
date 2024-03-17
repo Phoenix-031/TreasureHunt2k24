@@ -37,7 +37,7 @@
 
         &>button {
             border: 1px solid $light;
-            background-color: $primary;
+            background-color: $action;
         }
 
         &>div:nth-child(n) {
@@ -46,7 +46,7 @@
 
             &>button:nth-child(n) {
                 border: 1px solid $light;
-                background-color: $primary;
+                background-color: $action;
             }
         }
 
