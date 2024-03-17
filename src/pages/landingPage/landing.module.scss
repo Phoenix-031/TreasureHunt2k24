@@ -15,6 +15,7 @@
     overflow-y: hidden;
     position: relative;
     @include flex-container(column, center, center);
+    color: floralwhite;
 
     &>div:nth-child(1) {
         width: 90%;
@@ -35,11 +36,16 @@
             font-size: 1.2rem;
             font-weight: 600;
         }
+
         &>button {
             background-color: $action;
             border: 1px solid $light;
             margin-top: 1rem;
             color: white;
+            padding: 0.5rem 0;
+            border-radius: 0.5rem;
+            width: 40%;
+            font-size: 1.2rem;
         }
     }
 }
@@ -48,11 +54,13 @@
     width: 100%;
     flex: 1;
     @include flex-container(column, center, center);
+
     &>p {
         font-family: $poppins-sans;
         font-size: 1rem;
         font-weight: 600;
     }
+
     &>button {
         background-color: $action;
         border: 1px solid $light;
@@ -72,15 +80,18 @@
 
     &>section {
         font-family: $poppins-sans;
+
         &>p:nth-child(1) {
             font-size: 1.2rem;
             font-weight: 600;
         }
+
         &>p:nth-child(2) {
             font-size: 0.8rem;
             font-weight: 600;
         }
     }
+
     &>span {
         font-family: $poppins-sans;
         font-size: 1.5rem;

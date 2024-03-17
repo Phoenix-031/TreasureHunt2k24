@@ -22,9 +22,10 @@
 
         &>p {
             font-family: $poppins-sans;
-            font-size: 1rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: 600;
             text-align: center;
+            color: floralwhite;
         }
 
         &>div {
@@ -41,18 +42,29 @@
     width: 100%;
     flex: 1;
     @include flex-container(column, flex-start, center);
+
     &>input {
         background-color: inherit;
         border: 1px solid $light;
         padding: 0.8rem;
-        border-radius: 2rem;
+        border-radius: 0.5rem;
         width: 75%;
+        font-weight: 400;
+        font-family: $poppins-sans;
+        color: floralwhite;
+        font-size: 0.9rem;
     }
+
     &>button {
         background-color: $action;
         border: 1px solid $light;
         margin-top: 1rem;
-        color: white;
+        padding: 0.5rem 0;
+        font-family: $poppins-sans;
+        width: 40%;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        font-size: 1rem;
     }
 }
 
@@ -60,6 +72,7 @@
     width: 100%;
     flex: 1;
     @include flex-container(column, center, center);
+
     &>img {
         width: 8rem;
         height: 8rem;

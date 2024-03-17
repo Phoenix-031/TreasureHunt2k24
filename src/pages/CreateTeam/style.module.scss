@@ -17,6 +17,7 @@
     width: 100vw;
     height: 100vh;
     padding: 3rem 0;
+    font-family: $poppins-sans;
     // @include flex-container(row, center, center);
 
     &>div:nth-child(1) {
@@ -28,11 +29,11 @@
 
         &>p {
             font-family: $poppins-sans;
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: floralwhite;
             text-align: center;
-            padding-bottom: 0.5rem;
+            padding-bottom: 1rem;
         }
 
         &>div {
@@ -41,7 +42,7 @@
             justify-content: center;
             display: flex;
             gap: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
         }
 
@@ -56,8 +57,9 @@
                 padding: 1rem 0.8rem;
                 border-radius: 0.5rem;
                 width: 75%;
-                font-weight: 500;
+                font-weight: 400;
                 color: floralwhite;
+                font-size: 0.9rem;
 
                 & :focus {
                     outline: none;
@@ -73,6 +75,7 @@
                 width: 50%;
                 border-radius: 0.5rem;
                 padding: 0.5rem 0;
+                font-size: 1rem;
             }
         }
 
