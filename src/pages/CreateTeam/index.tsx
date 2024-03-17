@@ -1,17 +1,17 @@
 
 import styles from './style.module.scss'
 import { useNavigate } from 'react-router-dom'
-// import { uuid } from 'uuidv4'
+import {v4} from 'uuid'
 
 const CreateTeamPage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  
   return (
     <div className={styles.create__main__container}>
         <div>
             <div className={styles.team__ID}>
                 <p>Your Team Id :</p>
-                <p>123456</p>
-                {/* <p>{uuid()}</p> */}
+                <p>{v4().split('-')[0]}</p>
             </div>
             
             <p>Enter your details</p>

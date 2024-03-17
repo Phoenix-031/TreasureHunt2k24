@@ -25,6 +25,7 @@
             font-family: $poppins-sans;
             font-size: 2rem;
             font-weight: 600;
+            color: floralwhite;
         }
 
         &>input {
@@ -33,11 +34,21 @@
             padding: 1rem;
             border-radius: 0.5rem;
             width: 80%;
+            color: floralwhite;
+
+            &:focus {
+                outline: none;
+            }
         }
 
         &>button {
             border: 1px solid $light;
             background-color: $action;
+            padding: 0.5rem 0;
+            width: 50%;
+            font-weight: 500;
+            font-family: $poppins-sans;
+            border-radius: 0.5rem;
         }
 
         &>div:nth-child(n) {
@@ -47,6 +58,11 @@
             &>button:nth-child(n) {
                 border: 1px solid $light;
                 background-color: $action;
+                padding: 0.5rem 0.8rem;
+                // width: 30%;
+                font-weight: 500;
+                font-family: $poppins-sans;
+                border-radius: 0.5rem;
             }
         }
 

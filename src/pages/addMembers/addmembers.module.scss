@@ -28,6 +28,7 @@
             font-weight: 700;
             text-align: center;
             padding-bottom: 0.4rem;
+            color: floralwhite;
         }
 
         &>div {
@@ -37,11 +38,17 @@
             font-size: 1.2rem;
             font-weight: 600;
         }
+
         &>button {
             background-color: $action;
             border: 1px solid $light;
             margin-top: 1rem;
             color: white;
+            padding: 0.5rem 0;
+            font-family: $poppins-sans;
+            color: floralwhite;
+            width: 40%;
+            border-radius: 0.5rem;
         }
     }
 }
@@ -50,11 +57,15 @@
     width: 100%;
     flex: 1;
     @include flex-container(column, flex-start, center);
+
     &>input {
         background-color: inherit;
         border: 1px solid $light;
         padding: 0.8rem;
-        border-radius: 2rem;
+        border-radius: 0.5rem;
         width: 75%;
+        font-weight: 500;
+        font-family: $poppins-sans;
+        color: floralwhite;
     }
 }
