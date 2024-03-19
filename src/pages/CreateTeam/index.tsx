@@ -10,8 +10,8 @@ const CreateTeamPage = () => {
     <div className={styles.create__main__container}>
         <div>
             <div className={styles.team__ID}>
-                <p>Your Team Id :</p>
-                <p>{v4().split('-')[0]}</p>
+              <p>Your Team Id :</p>
+              <p>{v4().split('-')[0]}</p>
             </div>
             
             <p>Enter your details</p>
