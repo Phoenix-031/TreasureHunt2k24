@@ -1,13 +1,14 @@
 // import { useEffect, useState } from 'react'
-import styles from './eventPage.module.scss'
+import styles from './style.module.scss'
 import { useNavigate } from 'react-router-dom'
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const EventPage = () => {
     const navigate = useNavigate();
 
     const [startWord, setStartWord] = useState('')
+    const [teamName, setTeamName] = useState('')
 
     const handleStartHunt = () => {
         if(startWord.toLocaleLowerCase() === 'espektro'){
@@ -16,6 +17,13 @@ const EventPage = () => {
             alert('Wrong Code! Please try again.')
         }
     }
+
+    useEffect(()=> {
+        const localdata = JSON.parse(localStorage.getItem('teamInfo') as string);
+
+        setTeamName(localdata.teamName)
+
+    }, [])
  
     return (
         <>
@@ -23,7 +31,7 @@ const EventPage = () => {
             <div>
                 <div className={styles.team__name}>
                 <p>Team Name :</p>
-                <p className={styles.name}>Gandu Choda</p>
+                <p className={styles.name}>{teamName}</p>
                 </div>
                 <div className={styles.startEvent}>
                     <p>Please Wait for a few Moments!</p>

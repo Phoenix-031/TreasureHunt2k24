@@ -5,16 +5,15 @@
 import styles from './style.module.scss'
 import { useNavigate } from 'react-router-dom'
 
-import axios from 'axios'
-
 import { useState } from 'react'
 
 import { CREATE } from '../../functions/team.function'
 import {v4} from'uuid';
+import { getRandomNumber } from '../../utils/RandomNumber'
+import { SpotsData } from '../../data/spotData'
 
 const CreateTeamPage = () => {
 
-  const BASE_URL = "http://localhost:7000/api/v1"
   
   const navigate = useNavigate();
 
@@ -26,8 +25,11 @@ const CreateTeamPage = () => {
     members: [{
       name: '',
       espektroId: ''
-    }]
+    }],
+    spotArray: SpotsData[getRandomNumber(1,16)],
   })
+  // console.log(team)
+  
   const [loading, setLoading] = useState(false)
 
   const handleCreateTeam = async() => {
@@ -44,48 +46,6 @@ const CreateTeamPage = () => {
 
     navigate('/login')
   }
-  
-  const [teamData, setTeamData] = useState({
-    teamName : '',
-    leader : '',
-    leaderEmail : '',
-    password : '',
-    confirmPassword : ''
-  })
-
-  const handleInputChange = (e: any, field :string) => {
-    const value = e.target.value;
-    setTeamData({
-      ...teamData,
-      [field]: value
-    });
-  };
-  
-
-  const handleProceed= () => {
-
-    const postTeamData = async() => {
-      const data = await axios.get(BASE_URL, 
-        {
-          headers:{
-              'Content-type': 'application/json'
-          },
-        }
-        )
-
-        console.log(data)
-    }
-    
-    if(!teamData.leader || !teamData.leaderEmail || !teamData.teamName)
-      alert('All Fields are required to move forward');
-    else if(teamData.password !== teamData.confirmPassword)
-      alert('Passwords do not match')
-    else{
-      postTeamData()
-      navigate('/addMembers')
-    }
-  } 
-  
   return (
     <div className={styles.create__main__container}>
         <div>

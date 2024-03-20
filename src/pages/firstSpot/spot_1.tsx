@@ -1,9 +1,24 @@
 // import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import styles from './spot_1.module.scss'
 import { useNavigate } from 'react-router-dom'
+import { FETCHBYID } from '../../functions/question.function';
 
 const Spot1 = () => {
     const navigate = useNavigate();
+
+    const [question, setQuestion] = useState('')
+
+    useEffect(() => {
+        const fetchQues = async()=> {
+            const localData = JSON.parse(localStorage.getItem('teamInfo') as string)
+            const res = await FETCHBYID(localData.spotArray[0])
+            console.log(res)
+            setQuestion(res.data.result.question)
+        }
+
+        fetchQues()
+    },[])
 
     return (
         <div className={styles.create__main__container}>
@@ -23,8 +38,7 @@ const Spot1 = () => {
                     </div>
                 </div> */}
                 <div className={styles.question__container}>
-                    <p>Question ID</p>
-                    <p>Question text: What is the capital of India?</p>
+                    <p>Question text: {question}</p>
                     <div className={styles.image__container}>
                         <img src="https://www.google.com/search?q=capital+of+india&rlz=1C1GCEU_enIN832IN832&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiT3v6Rl8jzAhXJzDgGHcHsB1QQ_AUIBygC&biw=1366&bih=657#imgrc=1Zm9F3X3v1N2DM" alt="image" />
                     </div>

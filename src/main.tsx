@@ -6,8 +6,8 @@ import "./index.css";
 import CreateTeamPage from "./pages/CreateTeam/index.tsx";
 // import AddMembers from "./pages/addMembers/addmembers.tsx";
 import LoginPage from "./pages/login/loginpage.tsx";
-import LandingPage from "./pages/landingPage/landing.tsx";
-import EventPage from "./pages/eventPage/eventPage.tsx";
+// import LandingPage from "./pages/landingPage/landing.tsx";
+import EventPage from "./pages/eventPage/index.tsx";
 import Spot1 from "./pages/firstSpot/spot_1.tsx";
 import Spot2 from "./pages/secondSpot/spot_2.tsx";
 import Spot3 from "./pages/thirdSpot/spot_3.tsx";
@@ -27,10 +27,6 @@ const router = createBrowserRouter([
   {
     path:'/createTeam',
     element : <CreateTeamPage />
-  },
-  {
-    path:'/landing',
-    element : <LandingPage />
   },
   {
     path:'/eventPage',

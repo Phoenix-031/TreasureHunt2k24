@@ -22,7 +22,17 @@ const LoginPage = () => {
       const res = await LOGIN(login);
       console.log(res);
       setLoading(false);
-      navigate('/eventPage')
+      if(res.data.code === 200){
+        localStorage.setItem('teamInfo', JSON.stringify(res.data.result));
+        navigate('/eventPage')
+      }
+      else {
+        alert("Invalid Credentials! Please try again.")
+        setLogin({
+          teamId: '',
+          espektroId: ''
+        })
+      }
     }
   }
   
