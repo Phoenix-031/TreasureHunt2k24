@@ -13,8 +13,9 @@
     width: 100vw;
     height: 100vh;
     overflow-y: hidden;
+    padding-top: 2rem;
     position: relative;
-    @include flex-container(column, center, center);
+    @include flex-container(column, flex-start, center);
     color: floralwhite;
 
     &>div:nth-child(1) {
@@ -51,14 +52,16 @@
                 font-weight: 600;
             }
         }
-        .question__container {
+        .startEvent {
             width: 100%;
             gap: 1rem;
-            @include flex-container(column, flex-start, center);
-            .image__container {
-                width: 90%;
-                padding: 1rem;
-                @include flex-container(row, center, center);
+            @include flex-container(column, center, center);
+            &>p:nth-child(1) {
+                font-weight: 700;
+            }
+            &>p:nth-child(2) {
+                font-size: 0.85rem;
+                font-weight: 500;
             }
         }
         .answer__container {
