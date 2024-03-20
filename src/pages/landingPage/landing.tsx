@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './landing.module.scss'
 
 const CreateTeamPage = () => {
+  const navigate = useNavigate();
+
   const [timerDays, setTimerDays] = useState<string>('00');
   const [timerHours, setTimerHours] = useState<string>('00');
   const [timerMinutes, setTimerMinutes] = useState<string>('00');
@@ -59,7 +62,7 @@ const CreateTeamPage = () => {
                 </div>
             </div>
             <p>Checkout our other events.</p>
-            <button>FB page</button>
+            <button onClick={() => navigate('/eventPage')}>FB page</button>
         </div>
     </div>
   )

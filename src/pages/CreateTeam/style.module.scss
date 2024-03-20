@@ -9,10 +9,11 @@
 }
 
 .create__main__container {
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: $primary;
     height: 100%;
-    overflow-y: hidden;
+    overflow-y: auto;
+    padding: 1rem 0;
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -24,6 +25,7 @@
         width: 100%;
         flex: 1;
         gap: 1rem;
+        @include flex-container(column, flex-start, center);
         // border: 1px solid red;
         height: 100%;
 
@@ -48,21 +50,22 @@
 
         .create__main__container__inputs {
             width: 100%;
-            flex: 1;
+            // flex: 1;
             @include flex-container(column, flex-start, center);
 
             &>input {
                 background-color: inherit;
-                border: 1px solid $light;
+                border: 0;
+                border-bottom: 1px solid $light;
                 padding: 1rem 0.8rem;
-                border-radius: 0.5rem;
                 width: 75%;
                 font-weight: 400;
                 color: floralwhite;
                 font-size: 0.9rem;
 
-                & :focus {
+                &:focus {
                     outline: none;
+                    // border-bottom: 1px;
                 }
             }
 
@@ -79,5 +82,75 @@
             }
         }
 
+        .add__member__container {
+            @include flex-container(column, center, center);
+            width: 100%;
+            gap: 2rem;
+
+            &>div:first-child {
+                width: 100%;
+                text-align: center;
+                font-weight: 500;
+                color: $light;
+            }
+
+            &>div:nth-child(2) {
+                padding: 0.8rem;
+                width: 80%;
+                border-radius: 0.4rem;
+                @include flex-container(column, center, center);
+                gap: 1rem;
+
+                &>div:nth-child(n) {
+                    border: 1px solid gray;
+                    position: relative;
+
+                    &>p {
+                        position: absolute;
+                        top: -8%;
+                        left: 5%;
+                        font-size: 0.8rem;
+                        font-weight: 400;
+                        background-color: $primary;
+                        padding: 0 0.8rem;
+                    }
+
+                    &>input {
+                        background-color: inherit;
+                        border: 0;
+                        border-bottom: 1px solid $light;
+                        padding: 1rem 0.8rem;
+                        width: 100%;
+                        font-weight: 400;
+                        color: floralwhite;
+                        font-size: 0.9rem;
+
+                        &:focus {
+                            outline: none;
+                            // border-bottom: 1px;
+                        }
+                    }
+                }
+
+            }
+
+            &>div:nth-child(3) {
+                @include flex-container(row, center, center);
+                gap: 1rem;
+
+                &>button:nth-child(n) {
+                    background-color: $action;
+                    border: 1px solid $light;
+                    padding: 0.5rem 1rem;
+                    font-family: $poppins-sans;
+                    // width: 40%;
+                    font-weight: 500;
+                    border-radius: 0.5rem;
+                    font-size: 1rem;
+                }
+
+            }
+
+        }
     }
 }

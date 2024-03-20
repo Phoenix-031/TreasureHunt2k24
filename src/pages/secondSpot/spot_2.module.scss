@@ -1,0 +1,91 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
+@mixin flex-container($direction: row, $justify: flex-start, $align: flex-start) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.create__main__container {
+    background-color: $primary;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+    position: relative;
+    @include flex-container(column, center, center);
+    color: floralwhite;
+
+    &>div:nth-child(1) {
+        width: 90%;
+        gap: 1rem;
+        @include flex-container(column, center, center);
+        .team__name {
+            font-weight: 600;
+            font-size: 1.2rem;
+            @include flex-container(row, center, center);
+            width: 100%;
+            gap: 1rem;
+            .name {
+                font-weight: 600;
+                text-align: center;
+                padding: 0.5rem;
+                background: $light;
+                color: $primary;
+                border-radius: 0.5rem;
+            }
+        }
+        .lives__container {
+            font-size: 0.8rem;
+            width: 100%;
+            gap: 1rem;
+            @include flex-container(row, flex-end, center);
+            gap: 0.25rem;
+            .heart__container {
+                justify-content: center;
+                display: flex;
+                gap: 0.25rem;
+                font-size: 1.3rem;
+                @include flex-container(row, center, center);
+                font-weight: 600;
+            }
+        }
+        .question__container {
+            width: 100%;
+            gap: 1rem;
+            @include flex-container(column, flex-start, center);
+            .image__container {
+                width: 90%;
+                padding: 1rem;
+                @include flex-container(row, center, center);
+            }
+        }
+        .answer__container {
+            width: 100%;
+            gap: 1rem;
+            @include flex-container(column, center, center);
+            &>input {
+                width: 100%;
+                padding: 1rem 0.8rem;
+                border-radius: 0.5rem;
+                font-weight: 400;
+                font-size: 0.9rem;
+                background-color: inherit;
+                border: 1px solid $light;
+                color: floralwhite;
+            }
+            &>button {
+                background-color: $action;
+                border: 1px solid $light;
+                margin-top: 0.5rem;
+                font-family: $poppins-sans;
+                font-weight: 500;
+                width: 50%;
+                border-radius: 0.5rem;
+                padding: 0.5rem 0;
+                font-size: 1rem;
+            }
+        }
+    }
+}
