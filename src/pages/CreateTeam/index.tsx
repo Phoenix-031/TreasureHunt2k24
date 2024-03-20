@@ -52,7 +52,6 @@ const CreateTeamPage = () => {
       postTeamData()
       navigate('/addMembers')
     }
-      // navigate('/addMembers')
   } 
   
   return (

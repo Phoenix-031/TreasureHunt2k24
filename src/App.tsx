@@ -12,6 +12,7 @@ const App = () => {
   const navigate = useNavigate()
   
   return (
+    // <div className={styles.app__wrapper}>
     <div className={styles.app__main__container}>
       <div>
         <p>Espektro Id</p>
@@ -32,6 +33,7 @@ const App = () => {
         </div>
       </div>
     </div>
+    // </div>
   )
 }
 
