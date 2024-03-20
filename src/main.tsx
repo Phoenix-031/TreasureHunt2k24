@@ -4,7 +4,7 @@ import App from "./App.tsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 import CreateTeamPage from "./pages/CreateTeam/index.tsx";
-import AddMembers from "./pages/addMembers/addmembers.tsx";
+// import AddMembers from "./pages/addMembers/addmembers.tsx";
 import LoginPage from "./pages/login/loginpage.tsx";
 import LandingPage from "./pages/landingPage/landing.tsx";
 import EventPage from "./pages/eventPage/eventPage.tsx";
@@ -27,10 +27,6 @@ const router = createBrowserRouter([
   {
     path:'/createTeam',
     element : <CreateTeamPage />
-  },
-  {
-    path:'/addMembers',
-    element : <AddMembers />
   },
   {
     path:'/landing',
