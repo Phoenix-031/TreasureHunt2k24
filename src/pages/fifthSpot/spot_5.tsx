@@ -1,14 +1,17 @@
 // import { useEffect, useState } from 'react'
 import { useEffect, useState } from 'react';
 import styles from './spot_5.module.scss'
-import { FETCHBYID } from '../../functions/question.function';
+import { useNavigate } from 'react-router-dom'
+import { FETCHBYID, VERIFYANS } from '../../functions/question.function';
 
 const Spot1 = () => {
+    const navigate = useNavigate();
 
     const [question, setQuestion] = useState('')
     const [quesimg, setQuestionImg] = useState('')
     const [teamName, setTeamName] = useState('')
     const [ansCode, setAnsCode] = useState('')
+    const [loadingans, setLoadingAns] = useState(false)
     
     useEffect(() => {
         const fetchQues = async()=> {
@@ -23,10 +26,15 @@ const Spot1 = () => {
         fetchQues()
     },[])
 
-    const handleSubmit = () => {
-        // if(ansCode.toLowerCase() === JSON.parse(localStorage.getItem('teamInfo') as string).)
-        // navigate('/2')
-        console.log("final 6th spot")
+    const handleSubmit = async() => {
+        setLoadingAns(true)
+        const res = await VERIFYANS(JSON.parse(localStorage.getItem('teamInfo') as string).spotArray[4], ansCode);
+        if(res.data.result) {
+            navigate('/treasure')
+        }else {
+            alert('Wrong answer')
+        }
+        setLoadingAns(false)
     }
 
     return (
@@ -37,7 +45,7 @@ const Spot1 = () => {
                 <p className={styles.name}>{teamName}</p>
                 </div>
                 <div className={styles.question__container}>
-                    <p>Question text: {question}</p>
+                    <p>{question}</p>
 
                     {
                         quesimg && 
@@ -50,7 +58,9 @@ const Spot1 = () => {
                     <input type="text" placeholder="Enter your answer-code" value={ansCode} 
                     onChange={(e) => setAnsCode(e.target.value)}
                      />
-                    <button onClick={handleSubmit}>Submit</button>
+                                        {
+                        loadingans ? <div>Loading...</div> : <button onClick={handleSubmit}>Submit</button>
+                    }
                 </div>
             </div>
         </div>
