@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useEffect, useState } from 'react';
 
+
 const EventPage = () => {
     const navigate = useNavigate();
 

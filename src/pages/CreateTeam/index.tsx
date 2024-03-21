@@ -12,6 +12,8 @@ import {v4} from'uuid';
 import { getRandomNumber } from '../../utils/RandomNumber'
 import { SpotsData } from '../../data/spotData'
 
+import { MutatingDots } from 'react-loader-spinner';
+
 const CreateTeamPage = () => {
 
   
@@ -136,11 +138,38 @@ const CreateTeamPage = () => {
                   }]
                 })
               }}>Add Member</button>
-              <button className={styles.add__member__button} onClick={handleCreateTeam}>
-                {
-                  loading ? 'Creating Team...' : 'Create Team'
-                }
-              </button>
+                  {/* <div className={styles.loader__styles}>
+                    <MutatingDots
+                      visible={true}
+                      height="100"
+                      width="100"
+                      color="#4fa94d"
+                      secondaryColor="#4fa94d"
+                      radius="12.5"
+                      ariaLabel="mutating-dots-loading"
+                      wrapperStyle={{}}
+                      wrapperClass=""
+                      />
+                  </div> */}
+              {
+                loading ? (
+                  <div className={styles.loader__styles}>
+                    <MutatingDots
+                      visible={true}
+                      height="100"
+                      width="100"
+                      color="#4fa94d"
+                      secondaryColor="#4fa94d"
+                      radius="12.5"
+                      ariaLabel="mutating-dots-loading"
+                      wrapperStyle={{}}
+                      wrapperClass=""
+                      />
+                  </div>
+                ) : (
+                  <button onClick={handleCreateTeam}>Create Team</button>
+                )
+              }
               </div>
             </div>
         </div>

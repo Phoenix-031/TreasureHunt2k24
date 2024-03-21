@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import styles from './spot_4.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { FETCHBYID, VERIFYANS } from '../../functions/question.function';
+import { MutatingDots } from 'react-loader-spinner';
 
 const Spot1 = () => {
     const navigate = useNavigate();
@@ -59,7 +60,19 @@ const Spot1 = () => {
                     onChange={(e) => setAnsCode(e.target.value)}
                      />
                                         {
-                        loadingans ? <div>Loading...</div> : <button onClick={handleSubmit}>Submit</button>
+                        loadingans ?                  <div className={styles.loader__styles}>
+                    <MutatingDots
+                      visible={true}
+                      height="100"
+                      width="100"
+                      color="#4fa94d"
+                      secondaryColor="#4fa94d"
+                      radius="12.5"
+                      ariaLabel="mutating-dots-loading"
+                      wrapperStyle={{}}
+                      wrapperClass=""
+                      />
+                  </div>: <button onClick={handleSubmit}>Submit</button>
                     }
                 </div>
             </div>
