@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-catch */
-import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
+import axios from "axios";
 import { createTeamApi, loginTeamApi } from "../api/team.apis";
 
 export const CREATE = async(createDto : any) => {

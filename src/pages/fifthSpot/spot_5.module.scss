@@ -21,27 +21,22 @@
         width: 90%;
         gap: 1rem;
         @include flex-container(column, center, center);
+
         .team__name {
             font-weight: 600;
             font-size: 1.2rem;
             @include flex-container(row, center, center);
             width: 100%;
             gap: 1rem;
-            .name {
-                font-weight: 600;
-                text-align: center;
-                padding: 0.5rem;
-                background: $light;
-                color: $primary;
-                border-radius: 0.5rem;
-            }
         }
+
         .lives__container {
             font-size: 0.8rem;
             width: 100%;
             gap: 1rem;
             @include flex-container(row, flex-end, center);
             gap: 0.25rem;
+
             .heart__container {
                 justify-content: center;
                 display: flex;
@@ -51,20 +46,24 @@
                 font-weight: 600;
             }
         }
+
         .question__container {
             width: 100%;
             gap: 1rem;
             @include flex-container(column, flex-start, center);
+
             .image__container {
                 width: 90%;
                 padding: 1rem;
                 @include flex-container(row, center, center);
             }
         }
+
         .answer__container {
             width: 100%;
             gap: 1rem;
             @include flex-container(column, center, center);
+
             &>input {
                 width: 100%;
                 padding: 1rem 0.8rem;
@@ -75,6 +74,7 @@
                 border: 1px solid $light;
                 color: floralwhite;
             }
+
             &>button {
                 background-color: $action;
                 border: 1px solid $light;
