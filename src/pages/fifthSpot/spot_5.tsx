@@ -1,7 +1,6 @@
 // import { useEffect, useState } from 'react'
 import { useEffect, useState } from 'react';
 import styles from './spot_5.module.scss'
-import { useNavigate } from 'react-router-dom'
 import { FETCHBYID } from '../../functions/question.function';
 
 const Spot1 = () => {
