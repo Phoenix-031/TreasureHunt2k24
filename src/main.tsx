@@ -16,6 +16,8 @@ import Spot5 from "./pages/fifthSpot/spot_5.tsx";
 import Treasure from "./pages/treasure/treasure.tsx";
 import NotFound from "./pages/NotFound/NotFound.tsx";
 
+import { ToastContainer } from "react-toastify";
+
 const router = createBrowserRouter([
   {
     path : '/',
@@ -66,5 +68,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
       <RouterProvider router={router} />
+      <ToastContainer />
   </React.StrictMode>,
 );

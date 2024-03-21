@@ -6,6 +6,8 @@ import { useState } from 'react'
 import { LOGIN } from '../../functions/team.function'
 import { MutatingDots } from 'react-loader-spinner'
 
+// import { toast } from 'react-toastify';
+
 const LoginPage = () => {
   const navigate = useNavigate()
 
@@ -35,6 +37,19 @@ const LoginPage = () => {
       }
     }
   }
+
+  // const notify = (message : string) =>
+  //   toast(
+  //     <div>
+  //       <p className={styles.toast}>
+  //         <span>{message}</span>
+  //       </p>
+  //     </div>,
+  //     {
+  //       type: 'info',
+  //       autoClose: 35000,
+  //     }
+  //   );
   
   return (
     <div className={styles.create__main__container}>
