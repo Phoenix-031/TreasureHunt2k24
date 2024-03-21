@@ -15,6 +15,7 @@ import Spot4 from "./pages/fourthSpot/spot_4.tsx";
 import Spot5 from "./pages/fifthSpot/spot_5.tsx";
 import Treasure from "./pages/treasure/treasure.tsx";
 import NotFound from "./pages/NotFound/NotFound.tsx";
+import Ending from "./pages/ending/end.tsx";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
   {
     path:'/treasure',
     element : <Treasure />
+  },
+  {
+    path:'/ending',
+    element : <Ending />
   },
   {
     path: '*',
