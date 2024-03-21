@@ -23,11 +23,18 @@
         @include flex-container(column, flex-start, center);
 
         .team__name {
-            font-weight: 600;
+            &>div:nth-child(1) {
+                @include flex-container(row, center, center);
+                gap: 1rem;
+            }
+
+            font-weight: 400;
             font-size: 1.2rem;
-            @include flex-container(row, center, center);
+            @include flex-container(column, flex-start, center);
             width: 100%;
             gap: 1rem;
+            // flex: 1;
+            padding: 2rem 0;
         }
 
         .lives__container {

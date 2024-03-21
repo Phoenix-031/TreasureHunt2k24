@@ -17,7 +17,6 @@
     @include flex-container(column, flex-start, center);
     color: floralwhite;
 
-
     &>div:nth-child(1) {
         width: 90%;
         gap: 1rem;
