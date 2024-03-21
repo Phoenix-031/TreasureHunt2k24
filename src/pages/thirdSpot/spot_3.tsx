@@ -57,7 +57,7 @@ const Spot1 = () => {
                     </div>
                 </div>
                 <div className={styles.question__container}>
-                    <p>{question}</p>
+                    <p>3. {question}</p>
 
                     {
                         quesimg && 
