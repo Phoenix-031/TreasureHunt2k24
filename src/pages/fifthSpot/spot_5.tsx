@@ -12,6 +12,7 @@ const Spot1 = () => {
     const [teamName, setTeamName] = useState('')
     const [ansCode, setAnsCode] = useState('')
     const [loadingans, setLoadingAns] = useState(false)
+    const [lives,setLives] = useState(0)
     
     useEffect(() => {
         const fetchQues = async()=> {
@@ -21,6 +22,7 @@ const Spot1 = () => {
             setQuestion(res.data.result.question)
             setQuestionImg(res.data.result.questionImage)
             setTeamName(localData.teamName)
+            setLives(localData.lives)
         }
 
         fetchQues()
@@ -32,7 +34,11 @@ const Spot1 = () => {
         if(res.data.result) {
             navigate('/treasure')
         }else {
-            alert('Wrong answer')
+            alert('OOps!! Wrong answer, you lost a life')
+            setLives(lives - 1)
+            setAnsCode('')
+            setLoadingAns(false)
+            localStorage.setItem('teamInfo', JSON.stringify({...JSON.parse(localStorage.getItem('teamInfo') as string), lives: lives - 1}))
         }
         setLoadingAns(false)
     }
@@ -40,9 +46,14 @@ const Spot1 = () => {
     return (
         <div className={styles.create__main__container}>
             <div>
+                 <div className={styles.lives__container}>
+                    <p>Lives : {lives}</p>
+                </div>
                 <div className={styles.team__name}>
-                <p>Team Name :</p>
-                <p className={styles.name}>{teamName}</p>
+                    <div>
+                        <p>Team Name :</p>
+                        <p className={styles.name}>{teamName}</p>
+                    </div>
                 </div>
                 <div className={styles.question__container}>
                     <p>{question}</p>

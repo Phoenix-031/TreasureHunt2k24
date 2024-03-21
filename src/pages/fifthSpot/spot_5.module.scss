@@ -14,13 +14,13 @@
     height: 100vh;
     overflow-y: hidden;
     position: relative;
-    @include flex-container(column, center, center);
+    @include flex-container(column, flex-start, center);
     color: floralwhite;
 
     &>div:nth-child(1) {
         width: 90%;
         gap: 1rem;
-        @include flex-container(column, center, center);
+        @include flex-container(column, flex-start, center);
 
         .team__name {
             font-weight: 600;
@@ -31,20 +31,11 @@
         }
 
         .lives__container {
-            font-size: 0.8rem;
             width: 100%;
-            gap: 1rem;
-            @include flex-container(row, flex-end, center);
-            gap: 0.25rem;
-
-            .heart__container {
-                justify-content: center;
-                display: flex;
-                gap: 0.25rem;
-                font-size: 1.3rem;
-                @include flex-container(row, center, center);
-                font-weight: 600;
-            }
+            text-align: right;
+            padding: 1rem 0;
+            font-weight: 600;
+            font-size: 1.5rem;
         }
 
         .question__container {
