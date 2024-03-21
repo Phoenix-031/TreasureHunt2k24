@@ -2,7 +2,7 @@
 import styles from './loginstyle.module.scss'
 import { useNavigate } from 'react-router-dom'
 import infinitio from '../../assets/infinito.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { LOGIN } from '../../functions/team.function'
 import { MutatingDots } from 'react-loader-spinner'
 
@@ -15,7 +15,14 @@ const LoginPage = () => {
     teamId: '',
     espektroId: ''
   })
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const localData = JSON.parse(localStorage.getItem('teamId') as string)
+
+    if(localData !== null)
+       setLogin({...login, teamId: localData.teamId})
+  }, [])
 
   const handleLogin = async() => {
     if(login.teamId === '' || login.espektroId === '') {
@@ -71,19 +78,21 @@ const LoginPage = () => {
           }
           />
           {
-            loading ?                  <div className={styles.loader__styles}>
-                    <MutatingDots
-                      visible={true}
-                      height="100"
-                      width="100"
-                      color="#4fa94d"
-                      secondaryColor="#4fa94d"
-                      radius="12.5"
-                      ariaLabel="mutating-dots-loading"
-                      wrapperStyle={{}}
-                      wrapperClass=""
-                      />
-                  </div>: <button onClick={handleLogin}>Login</button>
+            loading ?                 
+              <div className={styles.loader__styles}>
+                <MutatingDots
+                  visible={true}
+                  height="100"
+                  width="100"
+                  color="#4fa94d"
+                  secondaryColor="#4fa94d"
+                  radius="12.5"
+                  ariaLabel="mutating-dots-loading"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  />
+              </div>
+            : <button onClick={handleLogin}>Login</button>
           }
         </div>
       </div>

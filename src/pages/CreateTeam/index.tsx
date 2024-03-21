@@ -42,6 +42,7 @@ const CreateTeamPage = () => {
     }else {
       setLoading(true);
       const res = await CREATE(team);
+      localStorage.setItem('teamId', JSON.stringify({teamId: team.teamId}));
       console.log(res);
       setLoading(false);
     }
