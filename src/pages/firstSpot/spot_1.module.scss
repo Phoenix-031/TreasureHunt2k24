@@ -73,14 +73,19 @@
             @include flex-container(column, center, center);
 
             &>input {
-                width: 100%;
-                padding: 1rem 0.8rem;
-                border-radius: 0.5rem;
-                font-weight: 400;
-                font-size: 0.9rem;
                 background-color: inherit;
-                border: 1px solid $light;
+                border: 0;
+                border-bottom: 1px solid $light;
+                padding: 1rem 0.8rem;
+                width: 75%;
+                font-weight: 400;
                 color: floralwhite;
+                font-size: 0.9rem;
+
+                &:focus {
+                    outline: none;
+                    // border-bottom: 1px;
+                }
             }
 
             &>button {
