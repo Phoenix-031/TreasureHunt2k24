@@ -23,11 +23,10 @@ const LoginPage = () => {
       const res = await LOGIN(login);
       console.log(res);
       setLoading(false);
-      if(res.data.code === 200){
+      if(res.data.result.message !== 'Invalid credentials'){
         localStorage.setItem('teamInfo', JSON.stringify(res.data.result));
         navigate('/eventPage')
-      }
-      else {
+      } else {
         alert("Invalid Credentials! Please try again.")
         setLogin({
           teamId: '',
