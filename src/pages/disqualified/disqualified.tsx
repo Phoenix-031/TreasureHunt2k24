@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
-import styles from './style.module.scss'
+import styles from './styles.module.scss'
 // import { useNavigate } from 'react-router-dom'
 // import { FETCHBYID, VERIFYANS } from '../../functions/question.function';
 
-const Ending = () => {
+const Disqualified = () => {
     // const navigate = useNavigate();
 
     const [teamName, setTeamName] = useState('')
-    // const [ansCode, setAnsCode] = useState('')
     
     useEffect(() => {
         const fetchQues = async()=> {
@@ -15,7 +14,6 @@ const Ending = () => {
             // console.log(res)
             setTeamName(localData.teamName)
         }
-
         fetchQues()
     },[])
 
@@ -27,13 +25,13 @@ const Ending = () => {
                 <p>Team Name :</p>
                 <p className={styles.name}>{teamName}</p>
                 </div>
-                <div className={styles.treasure__container}>
-                    <p><b>🎊 Congratulations!! 🎉</b></p>
-                    <p>You have successfully completed the Hunt!</p>
+                <div className={styles.next__container}>
+                    <p><b>Better Luck Next Time!</b></p>
+                    <p>You ran out of lives. 😕</p>
+                    <p>Your team has been disqualified from Labyrinth.</p>
                     <div className={styles.gif__container}>
-                        <img src="https://media4.giphy.com/media/g9582DNuQppxC/200.gif" className="cursor-zoom-in max-h-full max-w-full mb-md s:mb-0" alt="GIF Image" />
+                        <img src="https://media1.tenor.com/m/CbEHei1L5O8AAAAC/slap-forehead-guppy.gif" className="cursor-zoom-in max-h-full max-w-full mb-md s:mb-0" alt="GIF Image" />
                     </div>
-                    <p>Please contact our co-ordinators.</p>
                     <p>Thank you for participating in Labyrinth.</p>
                 </div>
             </div>
@@ -41,4 +39,4 @@ const Ending = () => {
     )
 }
 
-export default Ending
+export default Disqualified

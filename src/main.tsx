@@ -16,7 +16,7 @@ import Spot5 from "./pages/fifthSpot/spot_5.tsx";
 import Treasure from "./pages/treasure/treasure.tsx";
 import NotFound from "./pages/NotFound/NotFound.tsx";
 import Ending from "./pages/ending/end.tsx";
-
+import Disqualified from "./pages/disqualified/disqualified.tsx";
 import { ToastContainer } from "react-toastify";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.tsx";
 
@@ -79,6 +79,10 @@ const router = createBrowserRouter([
   {
     path:'/ending',
     element : <Ending />
+  },
+  {
+    path: '/disqualified',
+    element: <Disqualified />
   },
   {
     path: '*',

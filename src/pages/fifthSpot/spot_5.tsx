@@ -4,7 +4,7 @@ import styles from './spot_5.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { FETCHBYID, VERIFYANS } from '../../functions/question.function';
 
-const Spot1 = () => {
+const Spot5 = () => {
     const navigate = useNavigate();
 
     const [question, setQuestion] = useState('')
@@ -34,7 +34,8 @@ const Spot1 = () => {
         if(res.data.result) {
             navigate('/treasure')
         }else {
-            alert('OOps!! Wrong answer, you lost a life')
+            setLoadingAns(false);
+            alert('Oops!! Wrong answer, you just lost a life.')
             setLives(lives - 1)
             setAnsCode('')
             setLoadingAns(false)
@@ -78,4 +79,4 @@ const Spot1 = () => {
     )
 }
 
-export default Spot1
+export default Spot5

@@ -4,7 +4,7 @@ import styles from './treasure.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { FETCHBYID, VERIFYANS } from '../../functions/question.function';
 
-const Spot1 = () => {
+const Treasure = () => {
     const navigate = useNavigate();
 
     const [question, setQuestion] = useState('')
@@ -32,6 +32,8 @@ const Spot1 = () => {
         if(res.data.result) {
             navigate('/ending')
         }else {
+            
+            setLoadingAns(false)
             alert('Wrong answer')
         }
         setLoadingAns(false)
@@ -71,4 +73,4 @@ const Spot1 = () => {
     )
 }
 
-export default Spot1
+export default Treasure

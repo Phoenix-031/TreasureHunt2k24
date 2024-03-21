@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { FETCHBYID, VERIFYANS } from '../../functions/question.function';
 import { MutatingDots } from 'react-loader-spinner';
 
-const Spot1 = () => {
+const Spot3 = () => {
     const navigate = useNavigate();
 
     const [question, setQuestion] = useState('')
@@ -35,7 +35,8 @@ const Spot1 = () => {
         if(res.data.result) {
             navigate('/kjnfvjkvf')
         }else {
-            alert('OOps!! Wrong answer, you lost a life')
+            setLoadingAns(false);
+            alert('Oops!! Wrong answer, you just lost a life.')
             setLives(lives - 1)
             setAnsCode('')
             setLoadingAns(false)
@@ -91,4 +92,4 @@ const Spot1 = () => {
     )
 }
 
-export default Spot1
+export default Spot3
