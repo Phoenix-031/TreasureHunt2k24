@@ -35,7 +35,7 @@ const Spot2 = () => {
         if(res.data.result) {
             navigate('/dskbfvuy')
         }else {
-            setLoadingAns(false);
+            setLoadingAns(false)
             alert('Oops!! Wrong answer, you just lost a life.')
             setLives(lives - 1)
             setAnsCode('')
