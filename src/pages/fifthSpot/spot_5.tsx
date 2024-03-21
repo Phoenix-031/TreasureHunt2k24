@@ -4,7 +4,6 @@ import styles from './spot_5.module.scss'
 import { FETCHBYID } from '../../functions/question.function';
 
 const Spot1 = () => {
-    // const navigate = useNavigat e();
 
     const [question, setQuestion] = useState('')
     const [quesimg, setQuestionImg] = useState('')

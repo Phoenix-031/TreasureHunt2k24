@@ -1,4 +1,3 @@
-import { useState } from 'react'
 
 import styles from './app.module.scss'
 import infinitio from './assets/infinito.png'
