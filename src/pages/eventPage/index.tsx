@@ -13,7 +13,7 @@ const EventPage = () => {
 
     const handleStartHunt = () => {
         if(startWord.toLocaleLowerCase() === 'espektro'){
-            navigate('/1')
+            navigate('/djbvhjdfv')
         }else {
             alert('Wrong Code! Please try again.')
         }

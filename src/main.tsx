@@ -34,23 +34,23 @@ const router = createBrowserRouter([
     element : <EventPage />
   },
   {
-    path:'/1',
+    path:'/djbvhjdfv',
     element : <Spot1 />
   },
   {
-    path:'/2',
+    path:'/akjfvbhjq',
     element : <Spot2 />
   },
   {
-    path:'/3',
+    path:'/dskbfvuy',
     element : <Spot3 />
   },
   {
-    path:'/4',
+    path:'/kjnfvjkvf',
     element : <Spot4 />
   },
   {
-    path:'/5',
+    path:'/dskjvnds',
     element : <Spot5 />
   },
   {

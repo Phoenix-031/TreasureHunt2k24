@@ -31,7 +31,7 @@ const Spot1 = () => {
         setLoadingAns(true)
         const res = await VERIFYANS(JSON.parse(localStorage.getItem('teamInfo') as string).spotArray[1], ansCode);
         if(res.data.result) {
-            navigate('/3')
+            navigate('/dskbfvuy')
         }else {
             alert('Wrong answer')
         }
