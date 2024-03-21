@@ -28,7 +28,7 @@ const Spot1 = () => {
 
     const handleSubmit = async() => {
         setLoadingAns(true)
-        const res = await VERIFYANS(JSON.parse(localStorage.getItem('teamInfo') as string).spotArray[4], ansCode);
+        const res = await VERIFYANS(JSON.parse(localStorage.getItem('teamInfo') as string).spotArray[3], ansCode);
         if(res.data.result) {
             navigate('/5')
         }else {
@@ -45,7 +45,7 @@ const Spot1 = () => {
                 <p className={styles.name}>{teamName}</p>
                 </div>
                 <div className={styles.question__container}>
-                    <p>Question text: {question}</p>
+                    <p>{question}</p>
 
                     {
                         quesimg && 

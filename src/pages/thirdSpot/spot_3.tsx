@@ -45,7 +45,7 @@ const Spot1 = () => {
                 <p className={styles.name}>{teamName}</p>
                 </div>
                 <div className={styles.question__container}>
-                    <p>Question text: {question}</p>
+                    <p>{question}</p>
 
                     {
                         quesimg && 
