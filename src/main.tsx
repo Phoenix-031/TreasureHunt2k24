@@ -18,19 +18,35 @@ import NotFound from "./pages/NotFound/NotFound.tsx";
 import Ending from "./pages/ending/end.tsx";
 
 import { ToastContainer } from "react-toastify";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.tsx";
 
 const router = createBrowserRouter([
   {
     path : '/',
-    element : <App />
+    element : 
+          <>
+          <ProtectedRoute>
+            <App />
+          </ProtectedRoute>
+          </>
   },
   {
     path : '/login',
-    element : <LoginPage />
+    element : 
+          <>
+          <ProtectedRoute>
+            <LoginPage />
+          </ProtectedRoute>
+          </>
   },
   {
     path:'/createTeam',
-    element : <CreateTeamPage />
+    element : 
+          <>
+          <ProtectedRoute>
+            <CreateTeamPage />
+          </ProtectedRoute>
+          </>
   },
   {
     path:'/eventPage',
