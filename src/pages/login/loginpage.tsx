@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 
 import styles from './loginstyle.module.scss'
 import { useNavigate } from 'react-router-dom'
