@@ -5,7 +5,7 @@ import styles from './spot_3.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { FETCHBYID, VERIFYANS } from '../../functions/question.function';
 import { MutatingDots } from 'react-loader-spinner';
-import { POSTDISQ, POSTHASH } from '../../functions/team.function';
+import { GETLIVES, POSTDISQ, POSTHASH, UPDATELIVES } from '../../functions/team.function';
 
 const Spot3 = () => {
     const navigate = useNavigate();
@@ -35,10 +35,13 @@ const Spot3 = () => {
             const localData = JSON.parse(localStorage.getItem('teamInfo') as string)
             const res = await FETCHBYID(localData.spotArray[2])
             // console.log(res)
+            const reslives = await GETLIVES(JSON.parse(localStorage.getItem('teamInfo') as string).teamId)
+            console.log(reslives)
+            setLives(reslives.data.result)
             setQuestion(res.data.result.question)
             setQuestionImg(res.data.result.questionImage)
             setTeamName(localData.teamName)
-            setLives(localData.lives)
+            // setLives(localData.lives)
         }
 
         fetchQues()
@@ -54,7 +57,9 @@ const Spot3 = () => {
         }else {
             setLoadingAns(false);
             alert('Oops!! Wrong answer, you just lost a life.')
-            setLives(lives - 1)
+            const reslives = await UPDATELIVES({teamId : JSON.parse(localStorage.getItem('teamInfo') as string).teamId , lives : lives-1 })
+            console.log(reslives)
+            setLives(reslives.data.result.lives)
             setAnsCode('')
             setLoadingAns(false)
             localStorage.setItem('teamInfo', JSON.stringify({...JSON.parse(localStorage.getItem('teamInfo') as string), lives: lives - 1}))
