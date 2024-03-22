@@ -33,48 +33,83 @@ const router = createBrowserRouter([
   {
     path : '/login',
     element : 
-          <>
-          <ProtectedRoute>
-            <LoginPage />
-          </ProtectedRoute>
-          </>
+    <>
+    <ProtectedRoute>
+      <LoginPage />
+    </ProtectedRoute>
+    </>
   },
   {
     path:'/createTeam',
     element : 
-          <>
-          <ProtectedRoute>
-            <CreateTeamPage />
-          </ProtectedRoute>
-          </>
+    <>
+    <ProtectedRoute>
+      <CreateTeamPage />
+    </ProtectedRoute>
+    </>
   },
   {
     path:'/eventPage',
-    element : <EventPage />
+    element : 
+    <>
+      <ProtectedRoute>
+        <EventPage />
+      </ProtectedRoute>
+    </>
   },
   {
     path:'/djbvhjdfv',
-    element : <Spot1 />
+    element : 
+    <>
+          <ProtectedRoute>
+            <Spot1 />
+          </ProtectedRoute>
+    </>
   },
   {
     path:'/akjfvbhjq',
-    element : <Spot2 />
+    element : 
+    <>
+          <ProtectedRoute>
+            <Spot2 />
+          </ProtectedRoute>
+    </>
   },
   {
     path:'/dskbfvuy',
-    element : <Spot3 />
+    element : 
+    <>
+          <ProtectedRoute>
+            <Spot3 />
+          </ProtectedRoute>
+    </>
   },
   {
     path:'/kjnfvjkvf',
-    element : <Spot4 />
+    element : 
+        <>
+          <ProtectedRoute>
+            <Spot4 />
+          </ProtectedRoute>
+    </>
   },
   {
     path:'/dskjvnds',
-    element : <Spot5 />
+    element : 
+        <>
+          <ProtectedRoute>
+            <Spot5 />
+          </ProtectedRoute>
+    </>
   },
   {
     path:'/treasure',
-    element : <Treasure />
+    element : 
+    <>
+          <ProtectedRoute>
+            <Treasure />
+          </ProtectedRoute>
+    </>
   },
   {
     path:'/ending',
@@ -86,7 +121,7 @@ const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: <NotFound /> // Assuming you have a NotFound component
+    element: <NotFound />
   }
 ]);
 

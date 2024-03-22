@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // import { useEffect, useState } from 'react'
 import { useEffect, useState } from 'react';
 import styles from './spot_1.module.scss'
@@ -14,6 +15,14 @@ const Spot1 = () => {
     const [ansCode, setAnsCode] = useState('')
     const [loadingans, setLoadingAns] = useState(false)
     const [lives,setLives] = useState(0)
+
+    useEffect(() => {
+        if(lives < 0){
+            navigate('/disqualified')
+            localStorage.removeItem('teamInfo');
+            localStorage.removeItem('teamId');
+        }
+    },[lives])
     
     useEffect(() => {
         const fetchQues = async()=> {

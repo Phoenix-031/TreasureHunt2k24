@@ -35,7 +35,10 @@ const LoginPage = () => {
       if(res.data.result.message !== 'Invalid credentials'){
         localStorage.setItem('teamInfo', JSON.stringify(res.data.result));
         navigate('/eventPage')
-      } else {
+      } else if (res.data.result.message  === 'Team name already exists') {
+        alert('Team name already exists')
+      }
+      else {
         alert("Invalid Credentials! Please try again.")
         setLogin({
           teamId: '',

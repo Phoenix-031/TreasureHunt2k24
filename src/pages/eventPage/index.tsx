@@ -12,7 +12,7 @@ const EventPage = () => {
     const [teamName, setTeamName] = useState('')
 
     const handleStartHunt = () => {
-        if(startWord.toLocaleLowerCase() === 'espektro'){
+        if(startWord.toLocaleLowerCase() === 'pirates' || startWord.toLocaleLowerCase() === 'pirate'){
             navigate('/djbvhjdfv')
         }else {
             alert('Wrong Code! Please try again.')

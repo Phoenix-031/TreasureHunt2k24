@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // import { useEffect, useState } from 'react'
 import { useEffect, useState } from 'react';
 import styles from './spot_5.module.scss'
@@ -27,6 +28,11 @@ const Spot5 = () => {
 
         fetchQues()
     },[])
+
+    useEffect(() => {
+        if(lives < 0)
+          navigate('/disqualified')
+    },[lives])
 
     const handleSubmit = async() => {
         setLoadingAns(true)
