@@ -30,6 +30,7 @@ const LoginPage = () => {
     }else {
       setLoading(true);
       const res = await LOGIN(login);
+      localStorage.setItem('teamId', JSON.stringify({teamId: login.teamId}));
       console.log(res);
       setLoading(false);
       if(res.data.result.message !== 'Invalid credentials'){

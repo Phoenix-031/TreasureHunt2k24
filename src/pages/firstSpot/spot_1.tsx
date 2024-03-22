@@ -5,6 +5,7 @@ import styles from './spot_1.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { FETCHBYID, VERIFYANS } from '../../functions/question.function';
 import { MutatingDots } from 'react-loader-spinner';
+import { POSTHASH } from '../../functions/team.function';
 
 const Spot1 = () => {
     const navigate = useNavigate();
@@ -42,6 +43,8 @@ const Spot1 = () => {
         setLoadingAns(true)
         const res = await VERIFYANS(JSON.parse(localStorage.getItem('teamInfo') as string).spotArray[0], ansCode);
         if(res.data.result) {
+            const dt = await POSTHASH({ teamId: JSON.parse(localStorage.getItem('teamInfo') as string).teamId, ansCode });
+            console.log(dt)
             navigate('/akjfvbhjq')
         }else {
             setLoadingAns(false);

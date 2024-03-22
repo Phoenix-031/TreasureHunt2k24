@@ -6,12 +6,13 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
     let isAuth = true
     // let isDisqualified=true
     const localData = JSON.parse(localStorage.getItem('teamInfo') as string)
-    if(localData !== null) {
-        isAuth= false
+    console.log(localData)
+    if(localData === null) {
+        isAuth = false
     }
 
     if (!isAuth) {
-        return <Navigate to="/djbvhjdfv" replace />;
+        return <Navigate to="/login" replace />;
     }
     return children;
 }

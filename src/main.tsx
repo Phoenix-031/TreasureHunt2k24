@@ -25,27 +25,27 @@ const router = createBrowserRouter([
     path : '/',
     element : 
           <>
-          <ProtectedRoute>
+          {/* <ProtectedRoute> */}
             <App />
-          </ProtectedRoute>
+          {/* </ProtectedRoute> */}
           </>
   },
   {
     path : '/login',
     element : 
     <>
-    <ProtectedRoute>
+    {/* <ProtectedRoute> */}
       <LoginPage />
-    </ProtectedRoute>
+    {/* </ProtectedRoute> */}
     </>
   },
   {
     path:'/createTeam',
     element : 
     <>
-    <ProtectedRoute>
+    {/* <ProtectedRoute> */}
       <CreateTeamPage />
-    </ProtectedRoute>
+    {/* </ProtectedRoute> */}
     </>
   },
   {

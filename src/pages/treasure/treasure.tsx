@@ -31,9 +31,11 @@ const Treasure = () => {
 
     const handleSubmit = async() => {
         setLoadingAns(true)
-        const res = await VERIFYANS(JSON.parse(localStorage.getItem('teamInfo') as string).spotArray[5], ansCode);
+        const res = await VERIFYANS(JSON.parse(localStorage.getItem('teamInfo') as string).spotArray[5], ansCode.toLowerCase());
         if(res.data.result) {
             navigate('/ending')
+            localStorage.removeItem('teamInfo');
+            localStorage.removeItem('teamId')
         }else {
             setLoadingAns(false)
             alert('Oops!! Wrong answer, you just lost a life.')
