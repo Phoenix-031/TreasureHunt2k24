@@ -6,11 +6,14 @@ import infinitio from '../../assets/infinito.png'
 import { useEffect, useState } from 'react'
 import { LOGIN } from '../../functions/team.function'
 import { MutatingDots } from 'react-loader-spinner'
+import {z} from 'zod'
 
 // import { toast } from 'react-toastify';
 
 const LoginPage = () => {
   const navigate = useNavigate()
+
+  const espektroIdSchema = z.string().min(11).max(11)
 
   const [login, setLogin] = useState({
     teamId: '',
@@ -28,7 +31,10 @@ const LoginPage = () => {
   const handleLogin = async() => {
     if(login.teamId === '' || login.espektroId === '') {
       return alert('Please fill all the details')
-    }else {
+    }else if(espektroIdSchema.safeParse(login.espektroId).success === false) {
+      return alert('Espektro id should be 11 characters long')
+    }
+    else {
       setLoading(true);
       const res = await LOGIN(login);
       localStorage.setItem('teamId', JSON.stringify({teamId: login.teamId}));
