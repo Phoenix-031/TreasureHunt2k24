@@ -5,7 +5,7 @@ import styles from './spot_4.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { FETCHBYID, VERIFYANS } from '../../functions/question.function';
 import { MutatingDots } from 'react-loader-spinner';
-import { POSTHASH } from '../../functions/team.function';
+import { POSTDISQ, POSTHASH } from '../../functions/team.function';
 
 const Spot4 = () => {
     const navigate = useNavigate();
@@ -18,11 +18,17 @@ const Spot4 = () => {
     const [lives,setLives] = useState(0)
 
     useEffect(() => {
-        if(lives < 0){
-            localStorage.removeItem('teamInfo');
-            localStorage.removeItem('teamId');
-          navigate('/disqualified')
+
+        const handleLives = async() => {
+            if(lives < 0){
+                const res = await POSTDISQ(JSON.parse(localStorage.getItem('teamInfo') as string).teamId);
+                console.log(res)
+                localStorage.removeItem('teamInfo');
+                localStorage.removeItem('teamId');
+                navigate('/disqualified')
+            }
         }
+        handleLives()
     },[lives])
     
     useEffect(() => {

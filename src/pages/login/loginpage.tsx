@@ -33,7 +33,11 @@ const LoginPage = () => {
       localStorage.setItem('teamId', JSON.stringify({teamId: login.teamId}));
       console.log(res);
       setLoading(false);
-      if(res.data.result.message !== 'Invalid credentials'){
+      if(res.data.result.isDisqualified) {
+        navigate('/disqualified')
+        return
+      }
+      else if(res.data.result.message !== 'Invalid credentials'){
         localStorage.setItem('teamInfo', JSON.stringify(res.data.result));
         navigate('/eventPage')
       } else if (res.data.result.message  === 'Team name already exists') {

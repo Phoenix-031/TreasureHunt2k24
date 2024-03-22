@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-useless-catch */
 import axios from "axios";
-import { AnswerHashApi, createTeamApi, loginTeamApi } from "../api/team.apis";
+import { AnswerHashApi, createTeamApi, DISQ, loginTeamApi } from "../api/team.apis";
 
 export const CREATE = async(createDto : any) => {
     try {
@@ -28,5 +28,14 @@ export const POSTHASH = async(ansdata : any) => {
         return res;
     } catch (error) {
         throw error;
+    }
+}
+
+export const POSTDISQ = async(teamId : string) => {
+    try {
+        const res = await axios.post(DISQ, { teamId : teamId })
+        return res;
+    } catch (error) {
+        throw error
     }
 }
