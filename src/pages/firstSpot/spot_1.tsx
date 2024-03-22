@@ -19,9 +19,9 @@ const Spot1 = () => {
 
     useEffect(() => {
         if(lives < 0){
-            navigate('/disqualified')
             localStorage.removeItem('teamInfo');
             localStorage.removeItem('teamId');
+            navigate('/disqualified')
         }
     },[lives])
     
@@ -43,7 +43,7 @@ const Spot1 = () => {
         setLoadingAns(true)
         const res = await VERIFYANS(JSON.parse(localStorage.getItem('teamInfo') as string).spotArray[0], ansCode);
         if(res.data.result) {
-            const dt = await POSTHASH({ teamId: JSON.parse(localStorage.getItem('teamInfo') as string).teamId, ansCode });
+            const dt = await POSTHASH({ teamId: JSON.parse(localStorage.getItem('teamInfo') as string).teamId, answerHash : ansCode });
             console.log(dt)
             navigate('/akjfvbhjq')
         }else {

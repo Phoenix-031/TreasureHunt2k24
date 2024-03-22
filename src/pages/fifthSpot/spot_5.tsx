@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './spot_5.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { FETCHBYID, VERIFYANS } from '../../functions/question.function';
+import { POSTHASH } from '../../functions/team.function';
 
 const Spot5 = () => {
     const navigate = useNavigate();
@@ -30,14 +31,19 @@ const Spot5 = () => {
     },[])
 
     useEffect(() => {
-        if(lives < 0)
+        if(lives < 0){
+            localStorage.removeItem('teamInfo');
+            localStorage.removeItem('teamId');
           navigate('/disqualified')
+        }
     },[lives])
 
     const handleSubmit = async() => {
         setLoadingAns(true)
         const res = await VERIFYANS(JSON.parse(localStorage.getItem('teamInfo') as string).spotArray[4], ansCode);
         if(res.data.result) {
+            const dt = await POSTHASH({ teamId: JSON.parse(localStorage.getItem('teamInfo') as string).teamId, answerHash : ansCode });
+            console.log(dt)
             navigate('/treasure')
         }else {
             setLoadingAns(false);

@@ -5,6 +5,7 @@ import styles from './spot_3.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { FETCHBYID, VERIFYANS } from '../../functions/question.function';
 import { MutatingDots } from 'react-loader-spinner';
+import { POSTHASH } from '../../functions/team.function';
 
 const Spot3 = () => {
     const navigate = useNavigate();
@@ -17,8 +18,11 @@ const Spot3 = () => {
     const [lives,setLives] = useState(0)
 
     useEffect(() => {
-        if(lives < 0)
-          navigate('/disqualified')
+        if(lives < 0){
+            localStorage.removeItem('teamInfo');
+            localStorage.removeItem('teamId');
+            navigate('/disqualified')
+        }
     },[lives])
     
     useEffect(() => {
@@ -39,6 +43,8 @@ const Spot3 = () => {
         setLoadingAns(true)
         const res = await VERIFYANS(JSON.parse(localStorage.getItem('teamInfo') as string).spotArray[2], ansCode);
         if(res.data.result) {
+            const dt = await POSTHASH({ teamId: JSON.parse(localStorage.getItem('teamInfo') as string).teamId, answerHash : ansCode });
+            console.log(dt)
             navigate('/kjnfvjkvf')
         }else {
             setLoadingAns(false);

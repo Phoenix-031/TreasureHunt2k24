@@ -4,6 +4,7 @@ import styles from './treasure.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { FETCHBYID, VERIFYANS } from '../../functions/question.function';
 import { MutatingDots } from 'react-loader-spinner';
+import { POSTHASH } from '../../functions/team.function';
 
 const Treasure = () => {
     const navigate = useNavigate();
@@ -29,10 +30,21 @@ const Treasure = () => {
         fetchQues()
     },[])
 
+
+    useEffect(() => {
+        if(lives < 0){
+        localStorage.removeItem('teamInfo');
+        localStorage.removeItem('teamId');
+          navigate('/disqualified')
+        }
+    },[lives])
+
     const handleSubmit = async() => {
         setLoadingAns(true)
         const res = await VERIFYANS(JSON.parse(localStorage.getItem('teamInfo') as string).spotArray[5], ansCode.toLowerCase());
         if(res.data.result) {
+            const dt = await POSTHASH({ teamId: JSON.parse(localStorage.getItem('teamInfo') as string).teamId, answerHash: ansCode });
+            console.log(dt)
             navigate('/ending')
             localStorage.removeItem('teamInfo');
             localStorage.removeItem('teamId')

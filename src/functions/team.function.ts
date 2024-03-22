@@ -23,6 +23,7 @@ export const LOGIN = async(loginDto: any) => {
 
 export const POSTHASH = async(ansdata : any) => {
     try {
+        // console.log(ansdata)
         const res = await axios.post(AnswerHashApi, ansdata);
         return res;
     } catch (error) {
