@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 // import { useNavigate } from 'react-router-dom'
 // import { FETCHBYID, VERIFYANS } from '../../functions/question.function';
@@ -6,25 +5,24 @@ import styles from './styles.module.scss'
 const Disqualified = () => {
     // const navigate = useNavigate();
 
-    const [teamName, setTeamName] = useState('')
     
-    useEffect(() => {
-        const fetchQues = async()=> {
-            const localData = JSON.parse(localStorage.getItem('teamInfo') as string)
-            // console.log(res)
-            setTeamName(localData.teamName)
-        }
-        fetchQues()
-    },[])
+    // useEffect(() => {
+    //     const fetchQues = async()=> {
+    //         const localData = JSON.parse(localStorage.getItem('teamInfo') as string)
+    //         // console.log(res)
+    //         setTeamName(localData.teamName)
+    //     }
+    //     fetchQues()
+    // },[])
 
 
     return (
         <div className={styles.create__main__container}>
             <div>
-                <div className={styles.team__name}>
+                {/* <div className={styles.team__name}>
                 <p>Team Name :</p>
                 <p className={styles.name}>{teamName}</p>
-                </div>
+                </div> */}
                 <div className={styles.next__container}>
                     <p><b>Better Luck Next Time!</b></p>
                     <p>You ran out of lives. 😕</p>
